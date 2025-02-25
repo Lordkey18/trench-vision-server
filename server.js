@@ -2,9 +2,11 @@ const WebSocket = require('ws');
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
 const express = require('express');
+const cors = require('cors'); // Ajout du middleware CORS
 const app = express();
 
 app.use(express.json());
+app.use(cors()); // Active CORS pour toutes les routes
 
 const telegramBot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: false });
 
